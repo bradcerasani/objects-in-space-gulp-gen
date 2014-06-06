@@ -60,11 +60,13 @@ gulp.task('rubysass', function() {
 
 //  Connect: sever task
 //===========================================
-gulp.task('connect', connect.server({
-  port: 1337,
-  root: [__dirname],
-  livereload: false
-}));
+gulp.task('connect', function() {
+  connect.server({
+    port: 1337,
+    root: [__dirname],
+    livereload: false
+  });
+});
 
 function watchStuff(task) {
   // Listen on port 35729
