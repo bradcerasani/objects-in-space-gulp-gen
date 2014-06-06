@@ -38,8 +38,8 @@ gulp.task('fileinclude', function() {
 //===========================================
 gulp.task('sass', function() {
   return gulp.src(path.join(paths.sass, '*.scss'))
-    .pipe(sass({ style: 'expanded', sourceComments: 'map', errLogToConsole: true}))
-    .pipe(autoprefixer('last 2 version', "> 1%", 'ie 8', 'ie 9'))
+    .pipe(sass({ style: 'expanded', errLogToConsole: true}))
+    .pipe(autoprefixer('last 2 version', '> 1%', 'ie 8', 'ie 9'))
     .pipe(gulp.dest('css'))
     .pipe(livereload(server))
     .pipe(notify({ message: 'LibSass files dropped!' }));
@@ -51,7 +51,7 @@ gulp.task('rubysass', function() {
   return gulp.src(path.join(paths.sass, '*.scss'))
     .pipe(plumber())
     .pipe(rubysass({ sourcemap: true, style: 'expanded'}))
-    .pipe(autoprefixer('last 2 version', "> 1%", 'ie 8', 'ie 9'))
+    // .pipe(autoprefixer('last 2 version', "> 1%", 'ie 8', 'ie 9'))
     .pipe(gulp.dest('css'))
     .pipe(livereload(server))
     .pipe(notify({ message: 'Ruby Sass files dropped!' }));
